@@ -1,38 +1,137 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+* {
+  box-sizing: border-box;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+body {
+  background: wheat;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Top NavBar styling */
+.topnav {
+  background-color: rgb(171, 226, 171);   
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  height: 60px;
+  vertical-align: middle;
+  line-height: 35px;
+}
+
+.Link {
+  padding: 14px 16px
+}
+  
+/* Title Box Styling */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  background-color: white;
+}
+
+.title { 
+  margin-top: 120px;
+  text-align: center;
+  font-size: 400%;
+  background-color: wheat;
+  width: 100%;
+}
+
+input[name='search'] {
+  /* Search Icon */
+  background: url("https://img.icons8.com/officexs/16/000000/search.png");
+  background-color: white;
+  background-repeat: no-repeat;
+  background-position: 10px 4px;
+  /* Text Position */
+  text-indent: 25px;
+  /* Input box */
+  width: 200px;
+  text-align: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  background-repeat: no-repeat;
+  transition: width 0.4s ease-in-out;
+  height: 30px;
+  vertical-align: top;
+}
+
+input[name="search"]:focus{
+  width:600px;
+  outline: none;
+}
+
+/* Display Recipes styling */
+.recipeCard {
+  border: 1px solid grey;
+  margin-top: 20px;
+  width : 30%;
+  background-color: white;
+}
+
+.recipeCard h4 {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0px 16px
+}
+
+.recipeContent {
+  display: flex;
+  flex-wrap: flex;
+}
+
+.recipeDescription {
+  margin-left: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.loginCard {
+  text-align: center;
+  align-items: center;
+  border: 1px solid black;
+  margin: 300px auto;
+  height: 200px;
+  width: 400px;
+  background-color: white;
+  box-shadow: 0px 5px 5px grey;
+}
+
+.loginCard input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #ccc;
+}
+
+.loginCard input:focus {
+  outline: none;
+}
+
+/* Style PlanMeal page */
+.PlanMeal {
+  display: flex;
+  flex-wrap: flex;
+}
+
+.ListRecipes {
+  text-align: center;
+  margin: 40px 0;
+  background-color: white;
+  width: 30%;
+  height: 100%;
+  border-right:1px solid black;
+}
+
+.FormatMeal {
+  background-color: white;
+  width: 70%;
+  height: 100%;
+  text-align: center;
 }
