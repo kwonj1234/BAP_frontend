@@ -43,7 +43,7 @@ function Home () {
     <div className='body'> 
       <div className = "title">
         <h1>RecipeBox</h1>
-        <form class="searchBar">
+        <form className="searchBar">
           <input type="text" name="search" placeholder="Search URL or Recipe"/>
         </form>
       </div>

@@ -1,10 +1,21 @@
 * {
   box-sizing: border-box;
-  align-items: center;
+  /* align-items: center; */
 }
 
 body {
   background: wheat;
+}
+
+.testshit {
+  margin-top: 100px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  background-color: white;
 }
 
 /* Top NavBar styling */
@@ -18,7 +29,7 @@ body {
   right: 0;
   position: fixed;
   height: 60px;
-  vertical-align: middle;
+  align-items: center;
   line-height: 35px;
 }
 
@@ -27,13 +38,6 @@ body {
 }
   
 /* Title Box Styling */
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  background-color: white;
-}
-
 .title { 
   margin-top: 120px;
   text-align: center;
@@ -68,7 +72,7 @@ input[name="search"]:focus{
   outline: none;
 }
 
-/* Display Recipes styling */
+/* Display Recipe Card styling */
 .recipeCard {
   border: 1px solid grey;
   margin-top: 20px;
@@ -93,6 +97,7 @@ input[name="search"]:focus{
   flex-wrap: wrap;
 }
 
+/* Login Page */
 .loginCard {
   text-align: center;
   align-items: center;
@@ -114,7 +119,7 @@ input[name="search"]:focus{
   outline: none;
 }
 
-/* Style PlanMeal page */
+/* PlanMeal page */
 .PlanMeal {
   display: flex;
   flex-wrap: flex;
@@ -135,3 +140,50 @@ input[name="search"]:focus{
   height: 100%;
   text-align: center;
 }
+
+/* Format Recipe Component */
+li {
+  margin-top: 20px;
+}
+
+.recipeTitle {
+  text-align: center;
+}
+
+.recipeInfo {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.yields {
+  padding-right: 40px;
+}
+
+.recipeBody {
+  display: flex;
+  flex-wrap: flex;
+}
+
+.recipeHeader {
+  margin-left: 20px;
+}
+
+.ingredientsBox {
+  flex:20%;
+  text-align: left;
+  border-right: 1px solid grey;
+  padding-right: 20px;
+}
+
+.ingredientList {
+  margin-left: 30px;
+}
+
+.instructionsBox {
+  flex: 80%;
+  /* display: flex; */
+  flex-wrap: wrap;
+  text-align: left;
+}
+
