@@ -32,7 +32,7 @@ function CreateAccount () {
     } catch (error) {
       console.log(error);
     }
-    output.innerHTML += "<p>" + response + "</p>";
+    output.innerHTML = "<p>" + response + "</p>";
   }
   return (
     <div className="CreateAccount">
