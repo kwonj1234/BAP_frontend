@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 function CreateAccount () {
-  const [url, setUrl] = useState("http://localhost:5000/create_user")
+  const [route, setRoute] = useState("http://localhost:5000/create_user")
   const [inputUsername, setInputUsername] = useState("")
   const [inputPassword, setInputPassword] = useState("")
   const [confirmPassword, setConfirmPassword] = useState("")
@@ -26,14 +26,14 @@ function CreateAccount () {
       })
     }
     try {
-      const response = await fetch(url, configs);
+      const response = await fetch(route, configs);
       const flaskResponse = await response.json();
-      setResponse(flaskResponse["response"]);
+      output.innerHTML = "<p>" + flaskResponse["response"] + "</p>";
     } catch (error) {
       console.log(error);
     }
-    output.innerHTML = "<p>" + response + "</p>";
   }
+
   return (
     <div className="CreateAccount">
       <h2>RecipeBox</h2>

@@ -2,17 +2,22 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom' 
 
 function Login () {
-  const [userData, setUserData] = useState({});
-  const [loginUrl, setLoginUrl] = useState("http://localhost:5000/login");
-  const [tokenUrl, setTokenUrl] = useState("http://localhost:5000/token_auth")
-  const [logoutUrl, setLogoutUrl] = useState("http://localhost:5000/logout")
-  const [isLoading, setIsLoading] = useState(true);
-  
+  // Routes
+  const [loginRoute, setLoginRoute] = useState("http://localhost:5000/login");
+  const [tokenRoute, setTokenRoute] = useState("http://localhost:5000/token");
+  const [logoutRoute, setLogoutRoute] = useState("http://localhost:5000/logout");
+  // User inputs
   const [inputUser, setInputUser] = useState("");
   const [inputPassword, setInputPassword] = useState("");
-  const [token, setToken] = useState(sessionStorage.getItem("token"));
+  // Data from back end
+  const [userData, setUserData] = useState({});
+  const [userRecipes, setUserRecipes] = useState({});
+  // Browser variables
+  const [isLoading, setIsLoading] = useState(true);
+  const [token, setToken] = useState(sessionStorage.getItem("token") || "");
 
   const sendLogin = async () => {
+    const output = document.getElementById("loginError")
     const configs = {
       method : "POST",
       mode : "cors",
@@ -22,36 +27,13 @@ function Login () {
         password : inputPassword
       })
     }
-    const response = await fetch(loginUrl, configs)
+    const response = await fetch(loginRoute, configs)
     const responseFlask = await response.json()
-    setUserData(responseFlask)
-    sessionStorage.setItem("token", userData["token"])
-    setToken(userData["token"])
+    sessionStorage.setItem("token", responseFlask["token"])
+    setToken(responseFlask["token"])
+    output.innerHTML = "<p>" + responseFlask["response"] + "</p>"
   }
-
-  useEffect(() => {
-    const tokenAuth = async () => {
-      setIsLoading(true)
-      try{
-        const configs = {
-          methods : "POST",
-          mode : "cors",
-          headers : {"Content-Type" : "application/json"},
-          body : JSON.stringify({
-            token : token
-          })
-        }
-        const response = await fetch(tokenUrl, configs);
-        const responseFlask = await response.json();
-        setUserData(responseFlask);
-      } catch (err) {
-        console.log(err)
-      }
-      setIsLoading(false);
-    }
-    tokenAuth()
-  }, [token])
-
+  
   const logout = async () => {
     const configs = {
       method : "POST",
@@ -61,16 +43,37 @@ function Login () {
         pk : userData["pk"]
       })
     }
-    await fetch(logoutUrl, configs)
+    await fetch(logoutRoute, configs)
     setToken("")
     sessionStorage.setItem("token", "")
   }
+
+  useEffect(() => {
+    const tokenAuth = async () => {
+      if (token === "") {
+        // pass
+      } else {
+        setIsLoading(true)
+        try{
+          const response = await fetch(`http://localhost:5000/token/${token}`);
+          const responseFlask = await response.json();
+          setUserData(responseFlask["userData"]);
+          setUserRecipes(responseFlask["userRecipes"]);
+        } catch (err) {
+          console.log(err)
+        }
+        setIsLoading(false);
+      }
+    }
+    tokenAuth()
+  }, [token])
 
   return (
     <div className="MyProfile">
       {!token ? (
         <div className="loginCard">
           <h2>RecipeBox</h2>
+          <div id="loginError"/>
           <input 
             id="username" 
             onChange={e => setInputUser(e.target.value)}
@@ -90,20 +93,14 @@ function Login () {
           <Link to="/CreateAccount" className="createAccountRoute">Don't have an account? Sign up now</Link>
         </div>
       ) : (
-        <div className="myRecipes">
-          { isLoading ? (
-            <p>Loading...</p>
-          ) : (
-            <div>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <h1>{userData["token"]}</h1>
-              <button id="logoutButton" onClick={() => {logout()}}>Logout</button>
-            </div>
-          )}
+        <div className="MyProfile">
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <h1>{userData["pk"]}</h1>
+          <button id="logoutButton" onClick={() => {logout()}}>Logout</button>
         </div>
       )}
     </div>
