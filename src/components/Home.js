@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router';
-import FormatRecipe from './FormatRecipe';
 
 function Home () {
   const [searchQuery, setSearchQuery] = useState("");
@@ -8,16 +7,6 @@ function Home () {
   // const listings = recipes.map((cards) => {
   //   return <RecipeCard data = {cards} />
   // })
-
-  const redirectToResults = () => {
-    return (
-      <Redirect to={{
-        pathname : "/Format",
-        state : {query : searchQuery}
-      }}
-      />
-    )
-  }
 
   return (
     <div className='body'> 
@@ -34,6 +23,7 @@ function Home () {
         {submit ? (
           <Redirect to={{
             pathname : "/Format",
+            search: "?utm=your+face",
             state : { query: searchQuery }
           }}
           />

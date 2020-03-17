@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 function FormatRecipe (props) {
-  const [url, setUrl] = useState(this.props.location.state.query);
+  const [url, setUrl] = useState(props.location.state.query);
   const [recipeRoute, setRecipeRoute] = useState('http://localhost:5000/get_url');
   const [saveRecipeRoute, setSaveRecipeRoute] = useState("http://localhost:5000/save_recipe_to_user")
 
@@ -30,21 +30,24 @@ function FormatRecipe (props) {
     tokenAuth()
   }, [token])
 
-  const getRecipe = async () => {
-    setIsLoading(true)
-    const configs = {
-      method : "POST",
-      mode   : "cors",
-      headers: {"Content-Type" : "application/json"},
-      body   : JSON.stringify({
-        recipe_url : url
-      })
+  useEffect (() => {
+    const getRecipe = async () => {
+      setIsLoading(true)
+      const configs = {
+        method : "POST",
+        mode   : "cors",
+        headers: {"Content-Type" : "application/json"},
+        body   : JSON.stringify({
+          recipe_url : url
+        })
+      }
+      const response = await fetch(recipeRoute, configs)
+      const responseFlask = await response.json()
+      setRecipe(responseFlask)
+      setIsLoading(false)
     }
-    const response = await fetch(recipeRoute, configs)
-    const responseFlask = await response.json()
-    setRecipe(responseFlask)
-    setIsLoading(false)
-  }
+    getRecipe()
+  }, [url])
 
   const saveRecipe = async () => {
     const output = document.getElementById("saveRecipeText");
@@ -64,7 +67,6 @@ function FormatRecipe (props) {
 
   return (
     <div className="FormatRecipe">
-      <button className="testshit" onClick={() => getRecipe()}>Submit</button>
       {isLoading ? (
         <p>Loading....</p>
       ) : (
