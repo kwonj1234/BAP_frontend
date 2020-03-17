@@ -2,25 +2,26 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 function FormatRecipe (props) {
-  const [url, setUrl] = useState('https://www.bonappetit.com/recipe/mashed-potatoes-with-crispety-cruncheties');
+  const [url, setUrl] = useState(this.props.location.state.query);
   const [recipeRoute, setRecipeRoute] = useState('http://localhost:5000/get_url');
-  const [tokenRoute, setTokenRoute] = useState("http://localhost:5000/token_auth");
   const [saveRecipeRoute, setSaveRecipeRoute] = useState("http://localhost:5000/save_recipe_to_user")
 
   const [userData, setUserData] = useState({});
+  const [userRecipes, setUserRecipes] = useState({});
   const [recipe, setRecipe] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [token, setToken] = useState(sessionStorage.getItem("token") || "");
 
   useEffect(() => {
     const tokenAuth = async () => {
-      if (token === "") {
+      if (token === "" || token === undefined) {
         // pass
       } else {
         try{
           const response = await fetch(`http://localhost:5000/token/${token}`);
           const responseFlask = await response.json();
-          setUserData(responseFlask);
+          setUserData(responseFlask["userData"]);
+          setUserRecipes(responseFlask["userRecipes"]);
         } catch (err) {
           console.log(err)
         }
@@ -52,7 +53,7 @@ function FormatRecipe (props) {
       mode   : "cors",
       headers: {"Content-Type" : "application/json"},
       body   : JSON.stringify({
-        recipe,
+        recipe : recipe,
         userPk : userData["pk"]
       })
     }
@@ -113,7 +114,7 @@ function FormatRecipe (props) {
           </div>
           <div id="saveRecipeText" />
           {!token ? 
-          <Link to="/Login" className="Link">Login to save recipe</Link>
+          <Link to="/MyProfile" className="Link">Login to save recipe</Link>
           : 
           <button onClick={() => {saveRecipe()}} className="saveRecipeButton">Save Recipe</button>
           }
