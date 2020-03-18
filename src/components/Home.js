@@ -22,8 +22,7 @@ function Home () {
         </form>
         {submit ? (
           <Redirect to={{
-            pathname : "/Format",
-            search: "?utm=your+face",
+            pathname : "/SearchUrl",
             state : { query: searchQuery }
           }}
           />

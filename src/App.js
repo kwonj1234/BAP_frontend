@@ -4,7 +4,7 @@ import NavBar from './components/NavBar';
 import MyProfile from './components/MyProfile';
 import Home from './components/Home';
 import PlanMeal from './components/PlanMeal'
-import FormatRecipe from './components/FormatRecipe'
+import SearchUrl from './components/SearchUrl'
 import CreateAccount from './components/CreateAccount';
 import './App.css';
 
@@ -18,7 +18,7 @@ function App() {
         <Route path="/Home" component={Home}/>
         <Route path="/MyProfile" component={MyProfile}/>
         <Route path="/PlanMeal" component={PlanMeal}/>
-        <Route path="/Format" component={FormatRecipe}/>
+        <Route path="/SearchUrl" component={SearchUrl}/>
         <Route path="/CreateAccount" component={CreateAccount}/>
       </div>
     </BrowserRouter>
