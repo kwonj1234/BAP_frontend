@@ -6,6 +6,7 @@ export default function RecipeDisplay(props) {
       <div className="recipeHeader">
         <div className="recipeTitle">
           <h1>{props.recipe["name"]}</h1>
+          <p>Source : <a href={props.recipe["url"]}>{props.recipe["url"]}</a></p>
         </div>
         <div className="recipleImage">
           <img src={props.recipe["image"]} />

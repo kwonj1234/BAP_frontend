@@ -6,6 +6,7 @@ import Home from './components/Home';
 import PlanMeal from './components/PlanMeal'
 import SearchUrl from './components/SearchUrl'
 import CreateAccount from './components/CreateAccount';
+import PlanMealDisplay from './components/PlanMealDisplay'
 import './App.css';
 
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/PlanMeal" component={PlanMeal}/>
         <Route path="/SearchUrl" component={SearchUrl}/>
         <Route path="/CreateAccount" component={CreateAccount}/>
+        <Route path="/PlanMealDisplay" component={PlanMealDisplay}/>
       </div>
     </BrowserRouter>
   );

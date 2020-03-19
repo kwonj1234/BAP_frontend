@@ -17,6 +17,7 @@ function Home () {
             type="text"
             onChange={e => setSearchQuery(e.target.value)} 
             name="search" 
+            autoComplete="off"
             placeholder="Search URL or Recipe">
           </input>
         </form>
@@ -24,8 +25,7 @@ function Home () {
           <Redirect to={{
             pathname : "/SearchUrl",
             state : { query: searchQuery }
-          }}
-          />
+          }}/>
         ) : (
           <p>Nothing</p>
         )}

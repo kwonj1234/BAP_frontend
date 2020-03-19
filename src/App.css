@@ -191,3 +191,8 @@ li {
   flex-wrap: wrap;
   text-align: left;
 }
+
+.mealInstructions {
+  margin-top: 100px;
+  text-align: center;
+}
