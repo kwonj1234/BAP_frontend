@@ -6,8 +6,10 @@ import Home from './components/Home';
 import PlanMeal from './components/PlanMeal'
 import SearchUrl from './components/SearchUrl'
 import CreateAccount from './components/CreateAccount';
-import PlanMealDisplay from './components/PlanMealDisplay'
+import PlanMealDisplay from './components/PlanMealDisplay';
+import DisplaySavedRecipe from './components/DisplaySavedRecipe';
 import './App.css';
+
 
 
 function App() {
@@ -22,6 +24,7 @@ function App() {
         <Route path="/SearchUrl" component={SearchUrl}/>
         <Route path="/CreateAccount" component={CreateAccount}/>
         <Route path="/PlanMealDisplay" component={PlanMealDisplay}/>
+        <Route path="/DisplaySavedRecipe" component={DisplaySavedRecipe}/>
       </div>
     </BrowserRouter>
   );

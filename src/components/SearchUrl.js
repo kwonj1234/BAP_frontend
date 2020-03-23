@@ -75,9 +75,9 @@ export default function SearchUrl (props) {
           <RecipeDisplay recipe={recipe} />
           <div id="saveRecipeText" />
           {!token ? 
-          <Link to="/MyProfile" className="Link">Login to save recipe</Link>
+            <Link to="/MyProfile" className="Link">Login to save recipe</Link>
           : 
-          <button onClick={() => {saveRecipe()}} className="saveRecipeButton">Save Recipe</button>
+            <button onClick={() => {saveRecipe()}} className="saveRecipeButton">Save Recipe</button>
           }
         </div>
       )}

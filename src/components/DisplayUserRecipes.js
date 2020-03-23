@@ -3,7 +3,7 @@ import RecipeCard from './RecipeCard'
 
 export default function DisplayUserRecipes(props) {
   return (
-    <div>
+    <div class="DisplayUserRecipes">
       {props.userRecipes.map((recipe) => {return <RecipeCard recipe={recipe}/>})}
     </div>
   )

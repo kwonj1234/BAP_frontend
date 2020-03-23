@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link, Redirect } from 'react-router-dom' 
-import DisplayUserRecipes from './DisplayUserRecipes'
+import { Link, Redirect } from 'react-router-dom' ;
+import DisplayUserRecipes from './DisplayUserRecipes';
 
 function MyProfile () {
   // Routes

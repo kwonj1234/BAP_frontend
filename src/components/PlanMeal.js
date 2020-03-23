@@ -56,11 +56,20 @@ function PlanMeal() {
               button just in case user wants to remove from the list. */}
           {planMeal.map((recipe) => {return (
             <div>
-              <p>{recipe.name}</p>
+              <button onClick={() => setRecipeOnDisplay(recipe)}>{recipe["name"]}</button>
               <button onClick={() => removeFromPlanMeal(recipe)}>Remove</button>
             </div>
           )})}
-          <button onClick={() => setSubmit(true)}>Plan This Meal</button>
+          <p id="planMealError"></p>
+          <button onClick={() => {
+            if (planMeal.length < 2) {
+              const output = document.getElementById("planMealError");
+              output.innerHTML = "<p>Add more recipes</p>"
+            } else {
+              console.log(planMeal.length)
+              setSubmit(true)
+            }
+          }}>Plan This Meal</button>
           {submit ? (
             <Redirect to={{
               pathname : "/PlanMealDisplay",
@@ -78,7 +87,7 @@ function PlanMeal() {
             : 
               <div>
                 {userRecipes.map((recipe) => 
-                  {return <button onClick={() => setRecipeOnDisplay(recipe)}>{recipe["name"]}</button>})}
+                  {return <li><button onClick={() => setRecipeOnDisplay(recipe)}>{recipe["name"]}</button></li>})}
               </div>
             }
           </div>
