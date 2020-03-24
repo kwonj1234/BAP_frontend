@@ -1,14 +1,11 @@
 * {
   box-sizing: border-box;
   /* align-items: center; */
+
 }
 
 body {
   background: wheat;
-}
-
-.testshit {
-  margin-top: 100px;
 }
 
 .row {
@@ -22,30 +19,43 @@ body {
   background-color: rgb(171, 226, 171);   
   display: flex;
   justify-content: space-between;
-  overflow: hidden;
   top: 0;
   left: 0;
   right: 0;
   position: fixed;
   height: 60px;
   align-items: center;
-  line-height: 35px;
 }
 
 .Link {
   padding: 14px 16px
 }
-  
-/* Title Box Styling */
-.title { 
-  margin-top: 120px;
-  text-align: center;
-  font-size: 400%;
+
+/* Home Page styling */
+.Home {
   background-color: wheat;
-  width: 100%;
+}
+/* Title Box Styling */
+.hero {
+  display: flex;
+  background: url("https://images.pexels.com/photos/1150447/pexels-photo-1150447.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
+  background-position: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 400%;
+  height: 100vh;
+  width: 100vw;
 }
 
-input[name='search'] {
+.hero h1 {
+  color: white;
+}
+
+.hero-body {
+  text-align: center;
+}
+
+input[name='hero-input'] {
   /* Search Icon */
   background: url("https://img.icons8.com/officexs/16/000000/search.png");
   background-color: white;
@@ -66,7 +76,7 @@ input[name='search'] {
   vertical-align: top;
 }
 
-input[name="search"]:focus{
+input[name="hero-input"]:focus{
   width:600px;
   outline: none;
 }

@@ -16,8 +16,8 @@ function App() {
 
   return (
     <BrowserRouter className="Browser">
-      <NavBar />
       <div className="App">
+        <NavBar />
         <Route path="/Home" component={Home}/>
         <Route path="/MyProfile" component={MyProfile}/>
         <Route path="/PlanMeal" component={PlanMeal}/>
