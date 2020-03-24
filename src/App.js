@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Route, BrowserRouter } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import MyProfile from './components/MyProfile';
@@ -10,21 +10,33 @@ import PlanMealDisplay from './components/PlanMealDisplay';
 import DisplaySavedRecipe from './components/DisplaySavedRecipe';
 import './App.css';
 
-
-
 function App() {
+  const [planMeal, setPlanMeal] = useState([]);
+  
+  const addToPlanMeal = (recipe) => {
+    const oldPlanMeal = [...planMeal];
+    oldPlanMeal.push(recipe)
+    setPlanMeal(oldPlanMeal)
+  }
+
+  const removeFromPlanMeal = (recipe) => {
+    const oldPlanMeal = [...planMeal];
+    const newPlanMeal = oldPlanMeal.filter(
+      (recipeInMeal) => {return recipeInMeal !== recipe})
+    setPlanMeal(newPlanMeal)
+  }
 
   return (
     <BrowserRouter className="Browser">
       <div className="App">
         <NavBar />
         <Route path="/Home" component={Home}/>
-        <Route path="/MyProfile" component={MyProfile}/>
-        <Route path="/PlanMeal" component={PlanMeal}/>
-        <Route path="/SearchUrl" component={SearchUrl}/>
+        <Route path="/MyProfile" render={(props) => <MyProfile {...props} planMeal={planMeal} addToPlanMeal={addToPlanMeal}/>}/>
+        <Route path="/PlanMeal" render={(props) => <PlanMeal {...props} planMeal={planMeal} addToPlanMeal={addToPlanMeal} removeFromPlanMeal={removeFromPlanMeal} />}/>
+        <Route path="/SearchUrl" render={(props) => <SearchUrl {...props} planMeal={planMeal} addToPlanMeal={addToPlanMeal}/>}/>
         <Route path="/CreateAccount" component={CreateAccount}/>
         <Route path="/PlanMealDisplay" component={PlanMealDisplay}/>
-        <Route path="/DisplaySavedRecipe" component={DisplaySavedRecipe}/>
+        <Route path="/DisplaySavedRecipe" render={(props) => <DisplaySavedRecipe {...props} planMeal={planMeal} addToPlanMeal={addToPlanMeal}/>}/>
       </div>
     </BrowserRouter>
   );

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom' ;
 import DisplayUserRecipes from './DisplayUserRecipes';
 
-function MyProfile () {
+function MyProfile (props) {
   // Routes
   const [loginRoute, setLoginRoute] = useState("http://localhost:5000/login");
   const [logoutRoute, setLogoutRoute] = useState("http://localhost:5000/logout");

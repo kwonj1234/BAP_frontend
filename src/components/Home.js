@@ -16,8 +16,7 @@ function Home () {
                       "https://images.pexels.com/photos/41171/brussels-sprouts-sprouts-cabbage-grocery-41171.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
                       "https://images.pexels.com/photos/905847/pexels-photo-905847.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
                       "https://images.pexels.com/photos/2087748/pexels-photo-2087748.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
-                      "https://images.pexels.com/photos/1150447/pexels-photo-1150447.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
-                      
+                      "https://images.pexels.com/photos/1150447/pexels-photo-1150447.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
                     ]
   // const listings = recipes.map((cards) => {
   //   return <RecipeCard data = {cards} />

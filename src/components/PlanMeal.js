@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Redirect } from 'react-router'
 import RecipeDisplay from './RecipeDisplay'
 
-function PlanMeal() {
+function PlanMeal(props) {
   const [submit, setSubmit] = useState(false);
   const [isLoadingToken, setIsLoadingToken] = useState(true);
   const [token, setToken] = useState(sessionStorage.getItem("token") || "");
@@ -11,7 +11,6 @@ function PlanMeal() {
   const [userRecipes, setUserRecipes] = useState([]);
   // Variables
   const [recipeOnDisplay, setRecipeOnDisplay] = useState("");
-  const [planMeal, setPlanMeal] = useState([]);
 
   useEffect(() => {
     const tokenAuth = async () => {
@@ -33,19 +32,6 @@ function PlanMeal() {
     tokenAuth()
   }, [token])
 
-  const addToPlanMeal = (recipe) => {
-    const oldPlanMeal = [...planMeal];
-    oldPlanMeal.push(recipe)
-    setPlanMeal(oldPlanMeal)
-  }
-
-  const removeFromPlanMeal = (recipe) => {
-    const oldPlanMeal = [...planMeal];
-    const newPlanMeal = oldPlanMeal.filter(
-      (recipeInMeal) => {return recipeInMeal !== recipe})
-    setPlanMeal(newPlanMeal)
-  }
-
   return (
     <div className="PlanMeal">
       <div className="lists">
@@ -54,26 +40,26 @@ function PlanMeal() {
           <br></br>
           {/* Display recipes you want to plan a meal with. Include a remove
               button just in case user wants to remove from the list. */}
-          {planMeal.map((recipe) => {return (
+          {props.planMeal.map((recipe) => {return (
             <div>
               <button onClick={() => setRecipeOnDisplay(recipe)}>{recipe["name"]}</button>
-              <button onClick={() => removeFromPlanMeal(recipe)}>Remove</button>
+              <button onClick={() => props.removeFromPlanMeal(recipe)}>Remove</button>
             </div>
           )})}
           <p id="planMealError"></p>
           <button onClick={() => {
-            if (planMeal.length < 2) {
+            if (props.planMeal.length < 2) {
               const output = document.getElementById("planMealError");
               output.innerHTML = "<p>Add more recipes</p>"
             } else {
-              console.log(planMeal.length)
+              console.log(props.planMeal.length)
               setSubmit(true)
             }
           }}>Plan This Meal</button>
           {submit ? (
             <Redirect to={{
               pathname : "/PlanMealDisplay",
-              state : { planMeal : planMeal }
+              state : { planMeal : props.planMeal }
             }}/>
           ) : (
             <div/>
@@ -101,11 +87,11 @@ function PlanMeal() {
           <div>
             <RecipeDisplay recipe={recipeOnDisplay} />
             {/* If the recipe is already in planMeal list, don't show the button to add it */}
-            {planMeal.includes(recipeOnDisplay) ? (
+            {props.planMeal.includes(recipeOnDisplay) ? (
               <p>Recipe added to your meal plan</p>
             ) : (
               <div>
-                <button onClick={() => addToPlanMeal(recipeOnDisplay)}>Add to Meal</button>
+                <button onClick={() => props.addToPlanMeal(recipeOnDisplay)}>Add to Meal</button>
               </div>
             )}
           </div>
