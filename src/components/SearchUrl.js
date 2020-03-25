@@ -79,6 +79,11 @@ export default function SearchUrl (props) {
           : 
             <button onClick={() => {saveRecipe()}} className="saveRecipeButton">Save Recipe</button>
           }
+          {props.planMeal.includes(recipe) ?
+            (<p>Recipe added to Meal Plan</p>)
+          :
+            (<button onClick={() => props.addToPlanMeal(recipe)}>Add to Meal Plan</button>)
+          }
         </div>
       )}
     </div>

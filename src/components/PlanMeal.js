@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Redirect } from 'react-router'
-import RecipeDisplay from './RecipeDisplay'
+import PlanMealCard from "./PlanMealCard"
 
 function PlanMeal(props) {
   const [submit, setSubmit] = useState(false);
@@ -34,69 +34,31 @@ function PlanMeal(props) {
 
   return (
     <div className="PlanMeal">
-      <div className="lists">
-        <div className="listPlanMeal">
-          <p>Plan Meal</p>
-          <br></br>
-          {/* Display recipes you want to plan a meal with. Include a remove
-              button just in case user wants to remove from the list. */}
-          {props.planMeal.map((recipe) => {return (
-            <div>
-              <button onClick={() => setRecipeOnDisplay(recipe)}>{recipe["name"]}</button>
-              <button onClick={() => props.removeFromPlanMeal(recipe)}>Remove</button>
-            </div>
-          )})}
-          <p id="planMealError"></p>
-          <button onClick={() => {
-            if (props.planMeal.length < 2) {
-              const output = document.getElementById("planMealError");
-              output.innerHTML = "<p>Add more recipes</p>"
-            } else {
-              console.log(props.planMeal.length)
-              setSubmit(true)
-            }
-          }}>Plan This Meal</button>
-          {submit ? (
-            <Redirect to={{
-              pathname : "/PlanMealDisplay",
-              state : { planMeal : props.planMeal }
-            }}/>
-          ) : (
-            <div/>
-          )}
-        </div>
-        {token ? (
-          <div className="listRecipes">
-            <p>All your recipes should be here</p>
-            {isLoadingToken ?
-              <p>Loading...</p>
-            : 
-              <div>
-                {userRecipes.map((recipe) => 
-                  {return <li><button onClick={() => setRecipeOnDisplay(recipe)}>{recipe["name"]}</button></li>})}
-              </div>
-            }
-          </div>
+      <div className="listPlanMeal">
+        <h1>Plan Meal</h1>
+        <br></br>
+        {/* Display recipes you want to plan a meal with. Include a remove
+            button just in case user wants to remove from the list. */}
+        {props.planMeal.map((recipe) => {return (
+          <PlanMealCard recipe={recipe} />
+        )})}
+        <p id="planMealError"></p>
+        <button onClick={() => {
+          if (props.planMeal.length < 2) {
+            const output = document.getElementById("planMealError");
+            output.innerHTML = "<p>Add more recipes</p>"
+          } else {
+            setSubmit(true)
+          }}}>
+          Plan This Meal
+        </button>
+        {submit ? (
+          <Redirect to={{
+            pathname : "/PlanMealDisplay",
+            state : { planMeal : props.planMeal }
+          }}/>
         ) : (
-          <div></div> // Show nothing while token authentication is loading
-        )}
-      </div>
-      <div className="display">
-        {/* If there is a recipe to display, display it, else don't do anything */}
-        {recipeOnDisplay ? (
-          <div>
-            <RecipeDisplay recipe={recipeOnDisplay} />
-            {/* If the recipe is already in planMeal list, don't show the button to add it */}
-            {props.planMeal.includes(recipeOnDisplay) ? (
-              <p>Recipe added to your meal plan</p>
-            ) : (
-              <div>
-                <button onClick={() => props.addToPlanMeal(recipeOnDisplay)}>Add to Meal</button>
-              </div>
-            )}
-          </div>
-        ) : (
-          <div></div>
+          <div/>
         )}
       </div>
     </div>

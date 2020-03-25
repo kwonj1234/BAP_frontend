@@ -167,34 +167,11 @@ li {
 /* PlanMeal page */
 .PlanMeal {
   display: flex;
-}
-
-.lists {
-  width: 25%;
-  list-style-type: none;
+  align-items: center;
+  justify-content: center;
 }
 
 .listPlanMeal {
-  background-color: white;
   margin-top: 60px;
-  text-align: center;
-  border-right:1px solid black;
-}
-
-.listRecipes {
-  background-color: white;
-  text-align: center;
-  border-top: 1px solid black;
-  border-right:1px solid black;
-  height: 100%;
-}
-
-.display {
-  width: 75%;
-}
-
-/* Plan Meal Display page */
-.mealInstructions {
-  margin-top: 100px;
   text-align: center;
 }
