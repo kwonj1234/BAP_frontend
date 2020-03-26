@@ -11,11 +11,16 @@ export default function PlanMealCard(props) {
       <span className="recipeName">
         <h4>{props.recipe["name"]}</h4>
       </span>
+      <br></br><br></br>
       <table className="recipeInfo">
         <tbody>
           <tr>
             <td className="leftColumn">
-              <img src={props.recipe["image"]}/>
+              <img 
+                src={props.recipe["image"]}
+                width="800px"
+                object_fit="cover"
+              />
               {Math.floor(props.recipe["time"] / 60) === 0 ?
                 <p>{props.recipe["time"] % 60} Minutes</p>
               :
@@ -26,13 +31,14 @@ export default function PlanMealCard(props) {
             <td className="rightColumn">
               <Tabs 
                 defaultActiveKey={currentTab} 
-                id="tabs" 
                 onSelect={(e) => setCurrentTab(e)}
+                id="tabs" 
+                className="tabs"
               >
                 <Tab eventKey="ingredients" title="Ingredients">
                   <ul className="ingredientList">
                     {props.recipe["ingredients"].map((ingredient) => 
-                      {return <li>{ingredient}</li>})}
+                      {return <p>{ingredient}</p>})}
                   </ul>
                 </Tab>
                 <Tab eventKey="instructions" title="Instructions">

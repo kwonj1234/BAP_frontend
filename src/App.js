@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, BrowserRouter } from 'react-router-dom';
+import { Redirect } from 'react-router';
 import NavBar from './components/NavBar';
 import MyProfile from './components/MyProfile';
 import Home from './components/Home';
@@ -39,6 +40,7 @@ function App() {
         <Route path="/PlanMealDisplay" component={PlanMealDisplay}/>
         <Route path="/DisplaySavedRecipe" render={(props) => <DisplaySavedRecipe {...props} planMeal={planMeal} addToPlanMeal={addToPlanMeal}/>}/>
       </div>
+      <Redirect to="/Home" />
     </BrowserRouter>
   );
 }

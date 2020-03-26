@@ -10,6 +10,7 @@ export default function PlanMealDisplay(props) {
   const [userRecipes, setUserRecipes] = useState({});
   // Variables
   const [mealInstructions, setMealInstructions] = useState([]);
+  const [recipes, setRecipes] = useState([])
   const [planMeal, setPlanMeal] = useState(props.location.state.planMeal)
 
   useEffect(() => {
@@ -41,10 +42,11 @@ export default function PlanMealDisplay(props) {
           planMeal : planMeal
         })
       }
-      const response = await fetch(planMealRoute, configs)
-      const responseFlask = await response.json()
-      setMealInstructions(responseFlask["response"])
-      setIsLoading(false)
+      const response = await fetch(planMealRoute, configs);
+      const responseFlask = await response.json();
+      setMealInstructions(responseFlask["instructions"]);
+      setRecipes(responseFlask["recipes"]);
+      setIsLoading(false);
     }
     planTheMeal()
   }, [planMeal])
@@ -55,10 +57,24 @@ export default function PlanMealDisplay(props) {
         <p>Loading....</p>
       ) : (
         <div>
-          <ol className="mealInstructions">
-            {mealInstructions.map((instruction) => 
-              {return <li>{instruction[1]}</li>})}
-          </ol>
+          <table className="planMeal">
+            <tbody>
+              <tr className="planMealHeader">
+                <td><h4>Time since start (minutes)</h4></td>
+                <td><h4>Instruction</h4></td>
+              </tr>
+              {mealInstructions.map((instruction) => {return (
+                <tr className="planMealRow">
+                  <td className="planMealTimeStep">
+                    {instruction.timeStep}
+                  </td>
+                  <td className="planMealInstruction">
+                    {instruction.instruction}
+                  </td>
+                </tr>
+                )})}
+            </tbody>
+          </table>
         </div>
       )}
     </div>

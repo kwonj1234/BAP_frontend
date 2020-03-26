@@ -39,46 +39,44 @@ function CreateAccount () {
       <h2>RecipeBox</h2>
       <h4>Create Account</h4>
       <div id="flaskResponse"/>
-      <form>
+      <form className="createAccountForm">
+        <label for="username">Username</label>
         <input 
           id="username" 
           onChange={e => setInputUsername(e.target.value)}
-          placeholder="Username">
+          >
         </input>
-        <br></br>
+        <label for="password1">Password</label>
         <input 
-          id="password" 
+          id="password1" 
           type="password"
-          placeholder="Password"
           onChange={e => setInputPassword(e.target.value)}>
         </input>
-        <br></br>
+        <label for="password2">Confirm Password</label>
         <input
-          id="password"
+          id="password2"
           type="password"
-          placeholder="Confirm Password"
           onChange={e => setConfirmPassword(e.target.value)}>
         </input>
-        <br></br>
+        <label for="fname">First Name</label>
         <input 
           id="fname"
           onChange={e => setInputFname(e.target.value)}
-          placeholder="First Name">
+          >
         </input>
-        <br></br>
+        <label for="lname">Last Name</label>
         <input
           id="lname"
           onChange={e => setInputLname(e.target.value)}
-          placeholder="Last Name">
+          >
         </input>
-        <br></br>
+        <label for="email">E-Mail</label>
         <input 
           id="email" 
           onChange={e => setInputEmail(e.target.value)}
-          placeholder="E-Mail">
+          >
         </input>
       </form>
-      <br></br>
       <button onClick={() => createAccount()} id="createButton">Create Account</button>
     </div>
   )
