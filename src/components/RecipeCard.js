@@ -7,11 +7,11 @@ function RecipeCard(props) {
     return (
       <div>
         <button onClick={() => setSubmit(true)} className="recipeCard">
-            <h4>{props.recipe["name"]}</h4>
             <div className="recipeContent">
                 <div className="recipePic">
-                    <img width="300px" object_fit="cover" src = {props.recipe.image} />
+                    <img src = {props.recipe.image} />
                 </div>
+                <h4>{props.recipe["name"]}</h4>
                 <div className="recipeDescription">
                     {Math.floor(props.recipe["time"] / 60) === 0 ?
                       <p>{props.recipe["time"] % 60} Minutes</p>

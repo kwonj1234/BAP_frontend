@@ -57,12 +57,14 @@ export default function DisplaySavedRecipe(props) {
   return (
     <div className="DisplaySavedRecipe">
       <RecipeDisplay recipe={recipe} />
-      <button onClick={() => deleteRecipe()}>Delete Recipe</button>
-      {props.planMeal.includes(recipe) ?
-        (<p>Recipe added to Meal Plan</p>)
-      :
-        (<button onClick={() => props.addToPlanMeal(recipe)}>Add to Meal Plan</button>)
-      }
+      <span>
+        <button onClick={() => deleteRecipe()}>Delete Recipe</button>
+        {props.planMeal.includes(recipe) ?
+          (<p>Recipe added to Meal Plan</p>)
+        :
+          (<button onClick={() => props.addToPlanMeal(recipe)}>Add to Meal Plan</button>)
+        }
+      </span>
       <div id="redirect"/>
     </div>
   )

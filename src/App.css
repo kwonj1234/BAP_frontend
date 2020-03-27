@@ -28,7 +28,17 @@ body {
 }
 
 .Link {
-  padding: 14px 16px
+  color: black;
+  padding: 14px 16px;
+  margin: 0 10px;
+  transition: background-color 0.2s ease-in-out;
+  border-radius: 10px;
+}
+
+.Link:hover {
+  color: black;
+  background-color: rgb(130, 177, 130);
+  text-decoration: none;
 }
 
 /* Home Page styling */
@@ -57,14 +67,13 @@ body {
 
 input[name='hero-input'] {
   /* Search Icon */
-  background: url("https://img.icons8.com/officexs/16/000000/search.png");
+  /* background: url("https://img.icons8.com/officexs/16/000000/search.png");
   background-color: white;
   background-repeat: no-repeat;
-  background-position: 10px 4px;
+  background-position: 10px 4px; */
   /* Text Position */
-  text-indent: 25px;
   /* Input box */
-  width: 200px;
+  width: 220px;
   text-align: center;
   overflow: hidden;
   box-sizing: border-box;
@@ -76,17 +85,12 @@ input[name='hero-input'] {
   vertical-align: top;
 }
 
+
 input[name="hero-input"]:focus{
   width:600px;
   outline: none;
-}
-
-/* Display Recipe Card styling */
-.recipeCard {
-  margin: 10px 5px;
-  background-color: white;
-  text-align: center;
-  width: 320px;
+  /* text-indent: 50px;
+  text-align: left; */
 }
 
 /* Login Page */
@@ -157,10 +161,46 @@ input[name="hero-input"]:focus{
   outline: none;
 }
 
+/* My Profile */
+.MyProfile {
+  text-align: center;
+  max-width: 1650px;
+  margin: 0 auto;
+  background-color: white;
+}
+
 /* Display User Saved Recipes */
-.DisplayUserRecipes {
+.userRecipesRow {
   display: flex;
+  justify-content: space-evenly;
+  margin: 0px auto;
+}
+
+.DisplayUserRecipes {
+  display: inline-flex;
   flex-wrap: wrap;
+}
+
+/* Display Recipe Card styling */
+.recipeCard {
+  margin: 10px 5px;
+  background-color: white;
+  text-align: center;
+  width: 320px;
+  height: 520px;
+  border: 0.5px solid gray;
+}
+
+.recipeCard img {
+  max-width: 100%;
+  height: 200px;
+  vertical-align: top;
+  top: 0;
+  margin-bottom: 20px;
+}
+
+.recipeCard button {
+  padding: 12px 16px;
 }
 
 /* Recipe Display Component */
@@ -210,6 +250,15 @@ li {
   text-align: left;
 }
 
+/* Display Saved Recipe */
+.DisplaySavedRecipe {
+  text-align: center;
+}
+
+.DisplaySavedRecipe button {
+  margin: 0 32px;
+}
+
 /* PlanMeal page */
 .listPlanMeal {
   margin-top: 60px;
@@ -218,7 +267,7 @@ li {
 
 .PlanMealCard {
   background-color: white;
-  margin: 20px;
+  margin: 20px 100px;
   padding: 0px 20px;
 }
 

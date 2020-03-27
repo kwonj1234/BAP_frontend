@@ -69,7 +69,7 @@ function MyProfile (props) {
   }
 
   return (
-    <div className="MyProfile">
+    <div>
       {!token ? (
         // If token is not set, user is not logged in
         <div className="loginCard">
@@ -95,7 +95,7 @@ function MyProfile (props) {
         </div>
       ) : (
         // If token is set user is already logged in
-        <div>
+        <div className="MyProfile">
           {isLoading ? (
             <p>Loading ...</p>
           ) : (
@@ -106,7 +106,7 @@ function MyProfile (props) {
               <br></br>
               <br></br>
               <h1>{userData["fname"]} {userData["lname"]}'s RecipeBox</h1>
-              <div className="row">
+              <div className="userRecipesRow">
                 <DisplayUserRecipes userRecipes={userRecipes} />
               </div>
               <button id="logoutButton" onClick={() => {logout()}}>Logout</button>

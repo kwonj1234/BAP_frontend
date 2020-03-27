@@ -40,7 +40,7 @@ function PlanMeal(props) {
         {/* Display recipes you want to plan a meal with. Include a remove
             button just in case user wants to remove from the list. */}
         {props.planMeal.map((recipe) => {return (
-          <PlanMealCard recipe={recipe} />
+          <PlanMealCard recipe={recipe} removeFromPlanMeal={props.removeFromPlanMeal}/>
         )})}
         <p id="planMealError"></p>
         <button onClick={() => {
