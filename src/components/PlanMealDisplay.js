@@ -57,6 +57,11 @@ export default function PlanMealDisplay(props) {
         <p>Loading....</p>
       ) : (
         <div>
+          <span className="planMealRecipes">
+            {recipes.map((recipe) => {return (
+                <p className={"recipeNames " + "recipe" + recipe["index"]}>{recipe["name"]}</p>
+            )})}
+          </span>
           <table className="planMeal">
             <tbody>
               <tr className="planMealHeader">
@@ -64,7 +69,7 @@ export default function PlanMealDisplay(props) {
                 <td><h4>Instruction</h4></td>
               </tr>
               {mealInstructions.map((instruction) => {return (
-                <tr className="planMealRow">
+                <tr className={"planMealRow" + " " + "recipe" + instruction["recipe_index"]}>
                   <td className="planMealTimeStep">
                     {instruction.timeStep}
                   </td>
@@ -72,7 +77,7 @@ export default function PlanMealDisplay(props) {
                     {instruction.instruction}
                   </td>
                 </tr>
-                )})}
+              )})}
             </tbody>
           </table>
         </div>

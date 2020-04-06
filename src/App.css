@@ -259,6 +259,15 @@ li {
   margin: 0 32px;
 }
 
+/* SearchUrl */
+.SearchUrl {
+  text-align: center;
+}
+
+.SearchUrl button {
+  margin: 0 32px;
+}
+
 /* PlanMeal page */
 .listPlanMeal {
   margin-top: 60px;
@@ -267,8 +276,9 @@ li {
 
 .PlanMealCard {
   background-color: white;
-  margin: 20px 100px;
+  margin: 20px auto;
   padding: 0px 20px;
+  width: 80%;
 }
 
 .rightColumn {
@@ -290,6 +300,16 @@ li {
   margin-top: 100px;
 }
 
+.planMealRecipes {
+  display: flex;
+  text-align: center;
+  justify-content: space-evenly;
+}
+
+.recipeNames {
+  margin: 12px 16px;
+}
+
 .planMeal {
   width: 75%;
   margin-left: auto;
@@ -307,5 +327,18 @@ li {
 .planMealTimeStep {
   text-align: center;
   border-right: 1px black solid;
+}
+
+.recipe0 {
+  background-color: rgb(247, 120, 120);
+}
+.recipe1 {
+  background-color: rgb(195, 247, 119);
+}
+.recipe2 {
+  background-color: rgb(243, 126, 184);
+}
+.recipe3 {
+  background-color: rgb(133, 133, 252);
 }
 
