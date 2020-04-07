@@ -12,13 +12,13 @@ export default function PlanMealCard(props) {
         <h4>{props.recipe["name"]}</h4>
       </span>
       <br></br><br></br>
-      <table className="recipeInfo">
+      <table className="recipeTable">
         <tbody>
           <tr>
             <td className="leftColumn">
               <img 
                 src={props.recipe["image"]}
-                width="800px"
+                height="200px"
                 object_fit="cover"
               />
               {Math.floor(props.recipe["time"] / 60) === 0 ?

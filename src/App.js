@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Route, BrowserRouter } from 'react-router-dom';
+import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import { Redirect } from 'react-router';
 import NavBar from './components/NavBar';
 import MyProfile from './components/MyProfile';
@@ -32,15 +32,16 @@ function App() {
     <BrowserRouter className="Browser">
       <div className="App">
         <NavBar />
-        <Route path="/Home" component={Home}/>
-        <Route path="/MyProfile" render={(props) => <MyProfile {...props} planMeal={planMeal} addToPlanMeal={addToPlanMeal}/>}/>
-        <Route path="/PlanMeal" render={(props) => <PlanMeal {...props} planMeal={planMeal} addToPlanMeal={addToPlanMeal} removeFromPlanMeal={removeFromPlanMeal} />}/>
-        <Route path="/SearchUrl" render={(props) => <SearchUrl {...props} planMeal={planMeal} addToPlanMeal={addToPlanMeal}/>}/>
-        <Route path="/CreateAccount" component={CreateAccount}/>
-        <Route path="/PlanMealDisplay" component={PlanMealDisplay}/>
-        <Route path="/DisplaySavedRecipe" render={(props) => <DisplaySavedRecipe {...props} planMeal={planMeal} addToPlanMeal={addToPlanMeal}/>}/>
+        <Switch>
+          <Route path="/Home" component={Home}/>
+          <Route path="/MyProfile" render={(props) => <MyProfile {...props} planMeal={planMeal} addToPlanMeal={addToPlanMeal}/>}/>
+          <Route path="/PlanMeal" render={(props) => <PlanMeal {...props} planMeal={planMeal} addToPlanMeal={addToPlanMeal} removeFromPlanMeal={removeFromPlanMeal} />}/>
+          <Route path="/SearchUrl" render={(props) => <SearchUrl {...props} planMeal={planMeal} addToPlanMeal={addToPlanMeal}/>}/>
+          <Route path="/CreateAccount" component={CreateAccount}/>
+          <Route path="/PlanMealDisplay" component={PlanMealDisplay}/>
+          <Route path="/DisplaySavedRecipe" render={(props) => <DisplaySavedRecipe {...props} planMeal={planMeal} addToPlanMeal={addToPlanMeal}/>}/>
+        </Switch>
       </div>
-      <Redirect to="/Home" />
     </BrowserRouter>
   );
 }

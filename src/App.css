@@ -48,7 +48,7 @@ body {
 /* Title Box Styling */
 .hero {
   display: flex;
-  background: url("https://images.pexels.com/photos/905847/pexels-photo-905847.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
+  background: url("https://images.pexels.com/photos/1600711/pexels-photo-1600711.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
   background-position: center;
   justify-content: center;
   align-items: center;
@@ -67,10 +67,10 @@ body {
 
 input[name='hero-input'] {
   /* Search Icon */
-  /* background: url("https://img.icons8.com/officexs/16/000000/search.png");
+  background: url("https://img.icons8.com/officexs/16/000000/search.png");
   background-color: white;
   background-repeat: no-repeat;
-  background-position: 10px 4px; */
+  background-position: 95% 50%;
   /* Text Position */
   /* Input box */
   width: 220px;
@@ -164,15 +164,14 @@ input[name="hero-input"]:focus{
 /* My Profile */
 .MyProfile {
   text-align: center;
-  max-width: 1650px;
-  margin: 0 auto;
-  background-color: white;
+  margin: 0px auto;
 }
 
 /* Display User Saved Recipes */
 .userRecipesRow {
   display: flex;
   justify-content: space-evenly;
+  max-width: 87%;
   margin: 0px auto;
 }
 
@@ -281,10 +280,16 @@ li {
   width: 80%;
 }
 
+.leftColumn {
+  box-sizing: border-box;
+  vertical-align: top;
+  width: 30%;
+}
+
 .rightColumn {
   display: inline-block;
   box-sizing: border-box;
-  width: 1000px;
+  width: 70%;
   text-align: left;
 }
 
@@ -292,6 +297,7 @@ li {
   top: 0;
   margin-bottom: 20px;
   vertical-align: top;
+  width: 100%;
 }
 
 /* Display Planned Meal */
@@ -336,7 +342,7 @@ li {
   background-color: rgb(195, 247, 119);
 }
 .recipe2 {
-  background-color: rgb(243, 126, 184);
+  background-color: rgb(126, 220, 243);
 }
 .recipe3 {
   background-color: rgb(133, 133, 252);
