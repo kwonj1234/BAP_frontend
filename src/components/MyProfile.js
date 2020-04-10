@@ -100,12 +100,7 @@ function MyProfile (props) {
             <p>Loading ...</p>
           ) : (
             <div>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <h1>{userData["fname"]} {userData["lname"]}'s RecipeBox</h1>
+              <h1>{userData["fname"]} {userData["lname"]}'s Saved Recipes</h1>
               <div className="userRecipesRow">
                 <DisplayUserRecipes userRecipes={userRecipes} />
               </div>

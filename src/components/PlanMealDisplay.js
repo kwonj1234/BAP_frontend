@@ -52,26 +52,33 @@ export default function PlanMealDisplay(props) {
   }, [planMeal])
 
   return (
-    <div className="PlanMealDisplay">
+    <div>
       {isLoading ? (
         <p>Loading....</p>
       ) : (
-        <div>
-          <span className="planMealRecipes">
+        <div className="PlanMealDisplay">
+          <div className="planMealRecipes">
             {recipes.map((recipe) => {return (
                 <p className={"recipeNames " + "recipe" + recipe["index"]}>{recipe["name"]}</p>
             )})}
-          </span>
+          </div>
           <table className="planMeal">
             <tbody>
               <tr className="planMealHeader">
-                <td><h4>Time since start (minutes)</h4></td>
-                <td><h4>Instruction</h4></td>
+                <td><h6>Time since start (minutes)</h6></td>
+                <td><h1>Instruction</h1></td>
               </tr>
               {mealInstructions.map((instruction) => {return (
                 <tr className={"planMealRow" + " " + "recipe" + instruction["recipe_index"]}>
                   <td className="planMealTimeStep">
-                    {instruction.timeStep}
+                    {Math.floor(instruction["timeStep"] / 60) === 0 ?
+                      <p>{instruction["timeStep"] % 60} minutes</p>
+                    :
+                      instruction["timeStep"] % 60 !== 0 ?
+                        <p>{Math.floor(instruction["timeStep"] / 60)} hours {instruction["timeStep"] % 60} minutes</p>
+                      :
+                        <p>{Math.floor(instruction["timeStep"] / 60)} hour</p>
+                    }
                   </td>
                   <td className="planMealInstruction">
                     {instruction.instruction}

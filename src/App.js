@@ -32,7 +32,6 @@ function App() {
     <BrowserRouter className="Browser">
       <div className="App">
         <NavBar />
-        <Switch>
           <Route path="/Home" component={Home}/>
           <Route path="/MyProfile" render={(props) => <MyProfile {...props} planMeal={planMeal} addToPlanMeal={addToPlanMeal}/>}/>
           <Route path="/PlanMeal" render={(props) => <PlanMeal {...props} planMeal={planMeal} addToPlanMeal={addToPlanMeal} removeFromPlanMeal={removeFromPlanMeal} />}/>
@@ -40,7 +39,6 @@ function App() {
           <Route path="/CreateAccount" component={CreateAccount}/>
           <Route path="/PlanMealDisplay" component={PlanMealDisplay}/>
           <Route path="/DisplaySavedRecipe" render={(props) => <DisplaySavedRecipe {...props} planMeal={planMeal} addToPlanMeal={addToPlanMeal}/>}/>
-        </Switch>
       </div>
     </BrowserRouter>
   );

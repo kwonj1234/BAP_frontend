@@ -59,6 +59,7 @@ body {
 .hero h1 {
   color: white;
   font-size: 600%;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .hero-body {
@@ -164,7 +165,7 @@ input[name="hero-input"]:focus{
 /* My Profile */
 .MyProfile {
   text-align: center;
-  margin: 0px auto;
+  margin: 100px auto;
 }
 
 /* Display User Saved Recipes */
@@ -307,9 +308,11 @@ li {
 }
 
 .planMealRecipes {
-  display: flex;
   text-align: center;
-  justify-content: space-evenly;
+  position: fixed;
+  width: 20%;
+  margin: 0 auto;
+  padding: 0 32px;
 }
 
 .recipeNames {
@@ -317,7 +320,7 @@ li {
 }
 
 .planMeal {
-  width: 75%;
+  width: 60%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -333,18 +336,22 @@ li {
 .planMealTimeStep {
   text-align: center;
   border-right: 1px black solid;
+  width: 20%;
 }
 
 .recipe0 {
-  background-color: rgb(247, 120, 120);
+  background-color: #C25436;
+  color: white;
 }
 .recipe1 {
-  background-color: rgb(195, 247, 119);
+  background-color: #CEC065;
 }
 .recipe2 {
-  background-color: rgb(126, 220, 243);
+  background-color: #5D8672;
+  color: white;
 }
 .recipe3 {
-  background-color: rgb(133, 133, 252);
+  background-color: #74433A;
+  color: white;
 }
 
