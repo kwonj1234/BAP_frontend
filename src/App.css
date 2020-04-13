@@ -304,25 +304,50 @@ li {
 /* Display Planned Meal */
 .PlanMealDisplay { 
   display: flex;
-  margin-top: 100px;
 }
 
-.planMealRecipes {
+.planMealColumn {
+  margin-top: 100px;
+  width: 20%;
+}
+
+.recipeNamesColumn {
+  display: flex;
+  margin: auto;
+  width: 20%;
+  padding: 0 32px;
+  height: 100%;
   text-align: center;
   position: fixed;
-  width: 20%;
-  margin: 0 auto;
-  padding: 0 32px;
+}
+
+.recipeNamesText {
+  margin: auto;
+  text-align: center;
 }
 
 .recipeNames {
   margin: 12px 16px;
 }
 
-.planMeal {
+.planMealColumn {
   width: 60%;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
+  margin-top: 80px;
+}
+
+.planMealButtons {
+  display: flex;
+  justify-content: center;
+}
+
+.planMealButtons button {
+  margin: 12px 16px;
+}
+
+.planMealIngredients {
+  margin: 0 auto;
+  text-align: center;
 }
 
 .planMeal td {

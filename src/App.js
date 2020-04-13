@@ -32,7 +32,7 @@ function App() {
     <BrowserRouter className="Browser">
       <div className="App">
         <NavBar />
-          <Route path="/Home" component={Home}/>
+          <Route path="/" component={Home}/>
           <Route path="/MyProfile" render={(props) => <MyProfile {...props} planMeal={planMeal} addToPlanMeal={addToPlanMeal}/>}/>
           <Route path="/PlanMeal" render={(props) => <PlanMeal {...props} planMeal={planMeal} addToPlanMeal={addToPlanMeal} removeFromPlanMeal={removeFromPlanMeal} />}/>
           <Route path="/SearchUrl" render={(props) => <SearchUrl {...props} planMeal={planMeal} addToPlanMeal={addToPlanMeal}/>}/>

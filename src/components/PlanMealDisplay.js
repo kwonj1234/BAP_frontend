@@ -10,8 +10,10 @@ export default function PlanMealDisplay(props) {
   const [userRecipes, setUserRecipes] = useState({});
   // Variables
   const [mealInstructions, setMealInstructions] = useState([]);
-  const [recipes, setRecipes] = useState([])
-  const [planMeal, setPlanMeal] = useState(props.location.state.planMeal)
+  const [mealIngredients, setMealIngredients] = useState([]);
+  const [recipes, setRecipes] = useState([]);
+  const [planMeal, setPlanMeal] = useState(props.location.state.planMeal);
+  const [instructionOnDisplay, setInstructionOnDisplay] = useState(true);
 
   useEffect(() => {
     const tokenAuth = async () => {
@@ -46,6 +48,7 @@ export default function PlanMealDisplay(props) {
       const responseFlask = await response.json();
       setMealInstructions(responseFlask["instructions"]);
       setRecipes(responseFlask["recipes"]);
+      setMealIngredients(responseFlask["ingredients"])
       setIsLoading(false);
     }
     planTheMeal()
@@ -57,36 +60,54 @@ export default function PlanMealDisplay(props) {
         <p>Loading....</p>
       ) : (
         <div className="PlanMealDisplay">
-          <div className="planMealRecipes">
-            {recipes.map((recipe) => {return (
-                <p className={"recipeNames " + "recipe" + recipe["index"]}>{recipe["name"]}</p>
-            )})}
-          </div>
-          <table className="planMeal">
-            <tbody>
-              <tr className="planMealHeader">
-                <td><h6>Time since start (minutes)</h6></td>
-                <td><h1>Instruction</h1></td>
-              </tr>
-              {mealInstructions.map((instruction) => {return (
-                <tr className={"planMealRow" + " " + "recipe" + instruction["recipe_index"]}>
-                  <td className="planMealTimeStep">
-                    {Math.floor(instruction["timeStep"] / 60) === 0 ?
-                      <p>{instruction["timeStep"] % 60} minutes</p>
-                    :
-                      instruction["timeStep"] % 60 !== 0 ?
-                        <p>{Math.floor(instruction["timeStep"] / 60)} hours {instruction["timeStep"] % 60} minutes</p>
-                      :
-                        <p>{Math.floor(instruction["timeStep"] / 60)} hour</p>
-                    }
-                  </td>
-                  <td className="planMealInstruction">
-                    {instruction.instruction}
-                  </td>
-                </tr>
+          <div className="recipeNamesColumn">
+            <div className="recipeNamesText">
+              {recipes.map((recipe) => {return (
+                  <p className={"recipeNames " + "recipe" + recipe["index"]}>{recipe["name"]}</p>
               )})}
-            </tbody>
-          </table>
+            </div>
+          </div>
+          <div className="planMealColumn">
+            <span className="planMealButtons">
+              <button onClick={() => setInstructionOnDisplay(false)}>Ingredients</button>
+              <button onClick={() => setInstructionOnDisplay(true)}>Instructions</button> 
+            </span>
+            { instructionOnDisplay ? (
+              <table className="planMeal">
+                <tbody>
+                  <tr className="planMealHeader">
+                    <td><h6>Time since start (minutes)</h6></td>
+                    <td><h1>Instruction</h1></td>
+                  </tr>
+                  {mealInstructions.map((instruction) => {return (
+                    <tr className={"planMealRow" + " " + "recipe" + instruction["recipe_index"]}>
+                      <td className="planMealTimeStep">
+                        {Math.floor(instruction["timeStep"] / 60) === 0 ?
+                          <p>{instruction["timeStep"] % 60} minutes</p>
+                        :
+                          instruction["timeStep"] % 60 !== 0 ?
+                            <p>{Math.floor(instruction["timeStep"] / 60)} hours {instruction["timeStep"] % 60} minutes</p>
+                          :
+                            <p>{Math.floor(instruction["timeStep"] / 60)} hour</p>
+                        }
+                      </td>
+                      <td className="planMealInstruction">
+                        {instruction.instruction}
+                      </td>
+                    </tr>
+                  )})}
+                </tbody>
+              </table>
+            ) : (
+              <table className="planMealIngredients">
+                {mealIngredients.map((ingredient) => {return (
+                  <tr className={"recipe" + ingredient["recipe_index"]}>
+                    <p>{ingredient["ingredient"]}</p>
+                  </tr>
+                )})}
+              </table>
+            )}
+          </div>
         </div>
       )}
     </div>
