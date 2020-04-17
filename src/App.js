@@ -4,8 +4,9 @@ import { Route, BrowserRouter, } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import MyProfile from './components/MyProfile';
 import Home from './components/Home';
-import PlanMeal from './components/PlanMeal'
-import SearchUrl from './components/SearchUrl'
+import PlanMeal from './components/PlanMeal';
+import SearchUrl from './components/SearchUrl';
+import EditRecipe from './components/EditRecipe';
 import CreateAccount from './components/CreateAccount';
 import PlanMealDisplay from './components/PlanMealDisplay';
 import DisplaySavedRecipe from './components/DisplaySavedRecipe';
@@ -35,6 +36,7 @@ function App() {
         <Route path="/MyProfile" render={(props) => <MyProfile {...props} planMeal={planMeal} addToPlanMeal={addToPlanMeal}/>}/>
         <Route path="/PlanMeal" render={(props) => <PlanMeal {...props} planMeal={planMeal} addToPlanMeal={addToPlanMeal} removeFromPlanMeal={removeFromPlanMeal} />}/>
         <Route path="/SearchUrl" render={(props) => <SearchUrl {...props} planMeal={planMeal} addToPlanMeal={addToPlanMeal}/>}/>
+        <Route path="/EditRecipe" component={EditRecipe} />
         <Route path="/CreateAccount" component={CreateAccount}/>
         <Route path="/PlanMealDisplay" component={PlanMealDisplay}/>
         <Route path="/DisplaySavedRecipe" render={(props) => <DisplaySavedRecipe {...props} planMeal={planMeal} addToPlanMeal={addToPlanMeal}/>}/>

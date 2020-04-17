@@ -13,6 +13,7 @@ export default function DisplaySavedRecipe(props) {
   // Browser variables
   const [token, setToken] = useState(sessionStorage.getItem("token") || "")
   const [isLoadingToken, setIsLoadingToken] = useState(true);
+  const [editRecipe, setEditRecipe] = useState(false);
 
   useEffect(() => {
     const tokenAuth = async () => {
@@ -56,9 +57,11 @@ export default function DisplaySavedRecipe(props) {
 
   return (
     <div className="DisplaySavedRecipe">
+      <button onClick={() => {setEditRecipe(true)}} className="editRecipeButton">Edit Recipe</button>
       <RecipeDisplay recipe={recipe} />
       <span>
         <button onClick={() => deleteRecipe()}>Delete Recipe</button>
+        <button onClick={() => setEditRecipe(true)}>Edit Recipe</button>
         {props.planMeal.includes(recipe) ?
           (<p>Recipe added to Meal Plan</p>)
         :
@@ -66,6 +69,14 @@ export default function DisplaySavedRecipe(props) {
         }
       </span>
       <div id="redirect"/>
+        {editRecipe ? (
+          <Redirect to={{
+            pathname : "/EditRecipe",
+            state : { recipe : recipe }
+          }}/>
+        ) : (
+          <div/>
+        )}
     </div>
   )
 }
