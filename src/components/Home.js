@@ -26,7 +26,7 @@ function Home () {
     <div className='Home'> 
       <div className = "hero">
         <div className="hero-body">
-          <h1>RecipeBox</h1>
+          <h1>BAP</h1>
           <form className="searchBar" onSubmit={() => setSubmit(true)}>
             <input 
               type="text"
