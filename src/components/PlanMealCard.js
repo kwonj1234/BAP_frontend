@@ -52,7 +52,10 @@ export default function PlanMealCard(props) {
           </tr>
         </tbody>
       </table>
-      <button onClick={() => props.removeFromPlanMeal(props.recipe)}>Remove From Meal Plan</button>
+      <span className="cardBottomButtons" >
+        <button onClick={() => props.removeFromPlanMeal(props.recipe)}>Remove From Meal Plan</button> 
+      </span>
+
     </div>
   )
 }

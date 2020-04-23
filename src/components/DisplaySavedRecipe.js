@@ -59,7 +59,7 @@ export default function DisplaySavedRecipe(props) {
     <div className="DisplaySavedRecipe">
       <button onClick={() => {setEditRecipe(true)}} className="editRecipeButton">Edit Recipe</button>
       <RecipeDisplay recipe={recipe} />
-      <span>
+      <span className="bottomButtons">
         <button onClick={() => deleteRecipe()}>Delete Recipe</button>
         <button onClick={() => setEditRecipe(true)}>Edit Recipe</button>
         {props.planMeal.includes(recipe) ?
@@ -77,6 +77,10 @@ export default function DisplaySavedRecipe(props) {
         ) : (
           <div/>
         )}
+      <div className="footer">
+        <br></br>
+        <br></br>
+      </div>
     </div>
   )
 }

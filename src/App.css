@@ -15,6 +15,25 @@ body {
   justify-content: space-evenly;
 }
 
+.bottomButtons button {
+  margin: 12px 16px;
+  border-radius: 10px;
+  width: 20%;
+  border-style: solid;
+  background-color: rgb(252, 111, 111);
+  color: white;
+  height: 10%;
+}
+
+.cardBottomButtons button {
+  margin: 12px 16px;
+  border-radius: 10px;
+  width: 20%;
+  border-style: solid;
+  background-color: rgb(111, 188, 252);
+  color: white;
+  height: 10%;
+}
 /* Top NavBar styling */
 .topnav {
   background-color: rgb(171, 226, 171);   
@@ -349,6 +368,12 @@ li {
 
 .planMealButtons button {
   margin: 12px 16px;
+  border-radius: 10px;
+  width: 20%;
+  border-style: solid;
+  background-color: rgb(252, 111, 111);
+  color: white;
+  height: 10%;
 }
 
 .planMealIngredients {

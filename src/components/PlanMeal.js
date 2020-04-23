@@ -43,15 +43,17 @@ function PlanMeal(props) {
           <PlanMealCard recipe={recipe} removeFromPlanMeal={props.removeFromPlanMeal}/>
         )})}
         <p id="planMealError"></p>
-        <button onClick={() => {
-          if (props.planMeal.length < 2) {
-            const output = document.getElementById("planMealError");
-            output.innerHTML = "<p>Add more recipes</p>"
-          } else {
-            setSubmit(true)
-          }}}>
-          Plan This Meal
-        </button>
+        <span className="bottomButtons">
+          <button onClick={() => {
+            if (props.planMeal.length < 2) {
+              const output = document.getElementById("planMealError");
+              output.innerHTML = "<p>Add more recipes</p>"
+            } else {
+              setSubmit(true)
+            }}}>
+            Plan This Meal
+          </button>
+        </span>
         {submit ? (
           <Redirect to={{
             pathname : "/PlanMealDisplay",
@@ -60,6 +62,10 @@ function PlanMeal(props) {
         ) : (
           <div/>
         )}
+      </div>
+      <div className="footer">
+        <br></br>
+        <br></br>
       </div>
     </div>
   );
