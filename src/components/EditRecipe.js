@@ -31,7 +31,13 @@ export default function EditRecipe(props) {
           </div>
           <ul className="ingredientList">
             {recipe["ingredients"].map((ingredient) => 
-              {return <li><textarea rows="3" cols="30" defaultValue={ingredient} /></li>})}
+              {return (
+                <span>
+                  <li><textarea rows="3" cols="30" defaultValue={ingredient} /></li>
+                  <button>X</button>
+                </span>
+              )}
+            )}
           </ul>
         </div>
         <div className="instructionsBox">
@@ -40,7 +46,13 @@ export default function EditRecipe(props) {
           </div>
           <ol className="instructionList">
             {recipe["instructions"].map((instruction) => 
-              {return <li><textarea rows="4" cols="150" defaultValue={instruction[1]} /></li>})}
+              {return (
+                <span>
+                  <li><textarea rows="4" cols="150" defaultValue={instruction[1]} /></li>
+                  <button>X</button>
+                </span>
+              )}
+            )}
           </ol>
         </div>
       </div>
