@@ -14,6 +14,25 @@ body {
   justify-content: space-evenly;
 }
 
+.bottomButtons button {
+  margin: 12px 16px;
+  border-radius: 10px;
+  width: 20%;
+  border-style: solid;
+  background-color: rgb(252, 111, 111);
+  color: white;
+  height: 10%;
+}
+
+.cardBottomButtons button {
+  margin: 12px 16px;
+  border-radius: 10px;
+  width: 20%;
+  border-style: solid;
+  background-color: rgb(111, 188, 252);
+  color: white;
+  height: 10%;
+}
 /* Top NavBar styling */
 .topnav {
   background-color: rgb(171, 226, 171);   
@@ -100,8 +119,8 @@ input[name="hero-input"]:focus{
   align-items: center;
   border: 1px solid black;
   margin: 300px auto;
-  height: 220px;
-  width: 400px;
+  height: 50%;
+  width: 27%;
   background-color: white;
   box-shadow: 0px 5px 5px grey;
 }
@@ -209,7 +228,11 @@ li {
 }
 
 .RecipeDisplay {
-  margin: 100px 0;
+  margin: 80px 0;
+}
+
+.RecipeDisplay a {
+  text-align: right;
 }
 
 .recipeHeader {
@@ -257,6 +280,7 @@ li {
 
 .DisplaySavedRecipe button {
   margin: 0 32px;
+  justify-content: center;
 }
 
 /* SearchUrl */
@@ -343,6 +367,12 @@ li {
 
 .planMealButtons button {
   margin: 12px 16px;
+  border-radius: 10px;
+  width: 20%;
+  border-style: solid;
+  background-color: rgb(252, 111, 111);
+  color: white;
+  height: 10%;
 }
 
 .planMealIngredients {

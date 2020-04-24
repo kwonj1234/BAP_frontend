@@ -4,8 +4,8 @@ import DisplayUserRecipes from './DisplayUserRecipes';
 
 function MyProfile (props) {
   // Routes
-  const [loginRoute, setLoginRoute] = useState("http://localhost:5000/login");
-  const [logoutRoute, setLogoutRoute] = useState("http://localhost:5000/logout");
+  const loginRoute  = "http://localhost:5000/login";
+  const logoutRoute = "http://localhost:5000/logout";
   // Data from back end
   const [userData, setUserData] = useState({});
   const [userRecipes, setUserRecipes] = useState({});
@@ -49,9 +49,12 @@ function MyProfile (props) {
     }
     const response = await fetch(loginRoute, configs)
     const responseFlask = await response.json()
-    sessionStorage.setItem("token", responseFlask["token"])
-    setToken(responseFlask["token"])
-    output.innerHTML = "<p>" + responseFlask["response"] + "</p>"
+    if (responseFlask["token"] === "") {
+      output.innerHTML = "<p>" + responseFlask["response"] + "</p>"
+    } else {
+      sessionStorage.setItem("token", responseFlask["token"])
+      setToken(responseFlask["token"])
+    }
   }
 
   const logout = async () => {

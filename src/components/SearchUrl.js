@@ -74,18 +74,24 @@ export default function SearchUrl (props) {
         <div>
           <RecipeDisplay recipe={recipe} />
           <div id="saveRecipeText" />
-          {!token ? 
-            <Link to="/MyProfile" className="Link">Login to save recipe</Link>
-          : 
-            <button onClick={() => {saveRecipe()}} className="saveRecipeButton">Save Recipe</button>
-          }
-          {props.planMeal.includes(recipe) ?
-            (<p>Recipe added to Meal Plan</p>)
-          :
-            (<button onClick={() => props.addToPlanMeal(recipe)}>Add to Meal Plan</button>)
-          }
+          <span className="bottomButtons">
+            {!token ? 
+              <Link to="/MyProfile" className="Link">Login to save recipe</Link>
+            : 
+              <button onClick={() => {saveRecipe()}} className="saveRecipeButton">Save Recipe</button>
+            }
+            {props.planMeal.includes(recipe) ?
+              (<p>Recipe added to Meal Plan</p>)
+            :
+              (<button onClick={() => props.addToPlanMeal(recipe)}>Add to Meal Plan</button>)
+            }
+          </span>
         </div>
       )}
+      <div className="footer">
+        <br></br>
+        <br></br>
+      </div>
     </div>
   )
 }
