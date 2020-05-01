@@ -6,7 +6,7 @@ function NavBar() {
     <span className = "topnav">
       <div className="left">
           <Link to="/Home" className='Link'>Home</Link>
-          <Link to="/PlanMeal" className='Link'>Plan Meal</Link>
+          <Link to="/PlanMeal" className='Link'>Plan a Meal</Link>
       </div>
       <div className="right">
         <Link to="/MyProfile" className='Link'>My Profile</Link>
