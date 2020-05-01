@@ -87,7 +87,7 @@ body {
 
 input[name='hero-input'] {
   /* Search Icon */
-  background: url("https://img.icons8.com/officexs/16/000000/search.png");
+  /* background: url("https://img.icons8.com/officexs/16/000000/search.png"); */
   background-color: white;
   background-repeat: no-repeat;
   background-position: 95% 50%;
