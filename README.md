@@ -13,7 +13,7 @@ Install BAP using
 `git clone https://github.com/kwonj1234/recipebox_backend.git &&
 git clone https://github.com/kwonj1234/recipebox_frontend.git &&
 cd recipebox_frontend &&
-npm install'
+npm install`
 
 ## Running locally
 From the directory you cloned the two repositories, start the Flask server.
