@@ -11,24 +11,20 @@ You can find the backend code for BAP [here](https://github.com/kwonj1234/recipe
 Assuming you have both [Node.js](https://nodejs.org/en/) and [Flask](https://flask.palletsprojects.com/en/1.1.x/installation/#installation) installed.
 
 Install BAP using
-`git clone https://github.com/kwonj1234/recipebox_backend.git &&
 
-git clone https://github.com/kwonj1234/recipebox_frontend.git &&
-
-cd recipebox_frontend &&
-
+`git clone https://github.com/kwonj1234/recipebox_backend.git &&  
+git clone https://github.com/kwonj1234/recipebox_frontend.git &&  
+cd recipebox_frontend &&  
 npm install`
 
 ## Running locally
 From the directory you cloned the two repositories, start the Flask server.
 
-`cd recipebox_backend &&
-
+`cd recipebox_backend &&  
 python3 run.py`
 
 In a separate terminal start up the application in development mode.
 
-`cd ../recipebox_frontend &&
-
+`cd ../recipebox_frontend &&  
 npm start`
 
