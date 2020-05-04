@@ -76,7 +76,7 @@ function MyProfile (props) {
       {!token ? (
         // If token is not set, user is not logged in
         <div className="loginCard">
-          <h2>RecipeBox</h2>
+          <h2>RecipeDex</h2>
           <div id="loginError"/>
           <input 
             id="username" 
