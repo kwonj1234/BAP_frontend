@@ -57,11 +57,9 @@ export default function DisplaySavedRecipe(props) {
 
   return (
     <div className="DisplaySavedRecipe">
-      <button onClick={() => {setEditRecipe(true)}} className="editRecipeButton">Edit Recipe</button>
       <RecipeDisplay recipe={recipe} />
       <span className="bottomButtons">
         <button onClick={() => deleteRecipe()}>Delete Recipe</button>
-        <button onClick={() => setEditRecipe(true)}>Edit Recipe</button>
         {props.planMeal.includes(recipe) ?
           (<p>Recipe added to Meal Plan</p>)
         :

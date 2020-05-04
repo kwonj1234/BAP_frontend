@@ -33,7 +33,7 @@ function Home () {
               onChange={e => setSearchQuery(e.target.value)} 
               name="hero-input" 
               autoComplete="off"
-              placeholder="Search URL or Recipe">
+              placeholder="Search URL">
             </input>
           </form>
           {submit ? (
