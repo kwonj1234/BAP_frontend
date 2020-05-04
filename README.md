@@ -4,9 +4,19 @@ This project uses [Flask](https://flask.palletsprojects.com/en/1.1.x/installatio
 This project uses the [recipe-scrapers tool](https://github.com/hhursev/recipe-scrapers).
 
 ## Set Up RecipeDex
-You can find the backend code for RecipeDex [here](https://github.com/kwonj1234/recipedex_backend).
+You can try out RecipeDex at [recipedex.net](recipedex.net) from 10am - 6pm while servers are running.
 
-Assuming you have both [Node.js](https://nodejs.org/en/) and [Flask](https://flask.palletsprojects.com/en/1.1.x/installation/#installation) installed.
+OR 
+
+You can find the backend code for RecipeDex [here](https://github.com/kwonj1234/recipedex_backend). Run the following lines of code to start up a Flask server locally and use recipedex.net that way.
+
+    git clone https://github.com/kwonj1234/recipedex_backend.git &&
+    cd recipedex_backend &&
+    python3 run.py
+
+OR
+
+If you want to run everything locally.
 
 Install RecipeDex using
 
