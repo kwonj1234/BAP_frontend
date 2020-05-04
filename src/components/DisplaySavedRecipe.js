@@ -68,15 +68,6 @@ export default function DisplaySavedRecipe(props) {
           (<button onClick={() => props.addToPlanMeal(recipe)}>Add to Meal Plan</button>)
         }
       </span>
-      <div id="redirect"/>
-        {editRecipe ? (
-          <Redirect to={{
-            pathname : "/EditRecipe",
-            state : { recipe : recipe }
-          }}/>
-        ) : (
-          <div/>
-        )}
       <div className="footer">
         <br></br>
         <br></br>

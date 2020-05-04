@@ -36,7 +36,7 @@ function CreateAccount () {
 
   return (
     <div className="CreateAccount">
-      <h2>RecipeBox</h2>
+      <h2>RecipeDex</h2>
       <h4>Create Account</h4>
       <div id="flaskResponse"/>
       <form className="createAccountForm">
