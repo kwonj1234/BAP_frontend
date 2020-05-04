@@ -4,7 +4,7 @@ This project uses [Flask](https://flask.palletsprojects.com/en/1.1.x/installatio
 This project uses the [recipe-scrapers tool](https://github.com/hhursev/recipe-scrapers).
 
 ## Set Up RecipeDex
-You can try out RecipeDex at [recipedex.net](recipedex.net) from 10am - 6pm while servers are running.
+You can try out RecipeDex at recipedex.net from 10am - 6pm while servers are running.
 
 OR 
 
