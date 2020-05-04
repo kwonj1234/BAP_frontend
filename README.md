@@ -3,7 +3,7 @@ This project uses [Flask](https://flask.palletsprojects.com/en/1.1.x/installatio
 
 This project uses the [recipe-scrapers tool](https://github.com/hhursev/recipe-scrapers).
 
-## Set Up BAP
+## Set Up RecipeDex
 You can find the backend code for RecipeDex [here](https://github.com/kwonj1234/recipedex_backend).
 
 Assuming you have both [Node.js](https://nodejs.org/en/) and [Flask](https://flask.palletsprojects.com/en/1.1.x/installation/#installation) installed.
